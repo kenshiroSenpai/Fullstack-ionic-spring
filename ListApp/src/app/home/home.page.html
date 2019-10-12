@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h5>Click in <ion-icon name="add"></ion-icon> to create a new list</h5>
+  <h5>If you want enter in a list, click it!</h5>
+  <ion-list *ngFor="let list of showList">
+    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option (click)="alertControllerUpdateList(list.idList)" color="medium">Modify</ion-item-option>
+      </ion-item-options>
+      <ion-item (click)="getListById(list)">
+        <ion-label class="fontList">{{list.listName}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="alertControllerCreateList()">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

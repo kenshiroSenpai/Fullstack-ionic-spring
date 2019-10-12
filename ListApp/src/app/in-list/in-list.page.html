@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" class="paddBack">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="updateList()" class="paddBack">
+      <ion-icon name="more"></ion-icon>
+    </ion-buttons>
+    <ion-title class="padd">{{data.listName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-list *ngFor="let entry of data.belongedProducts">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title (click)="presentActionSheet(entry.idProduct)">{{entry.productName}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="alertControllerAddProduct()">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+</ion-content>
