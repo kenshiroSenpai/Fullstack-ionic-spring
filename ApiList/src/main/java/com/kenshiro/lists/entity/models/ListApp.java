@@ -22,12 +22,12 @@ public class ListApp implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id_lists")
+	@Column(name = "id_list")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idList;
 
 	@ManyToMany
-	@JoinTable(name = "lists_has_products", joinColumns = @JoinColumn(name = "id_lists"), inverseJoinColumns = @JoinColumn(name = "id_product"))
+	@JoinTable(name = "lists_has_products", joinColumns = @JoinColumn(name = "id_list"), inverseJoinColumns = @JoinColumn(name = "id_product"))
 	private Set<Product> belongedProducts = new HashSet<Product>();
 
 	@Column(name = "list_name")
